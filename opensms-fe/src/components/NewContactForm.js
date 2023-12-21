@@ -3,7 +3,7 @@ import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 
 import axios from "axios";
 
-import { API_URL } from "../constants";
+import { CONTACT_URL } from "../constants";
 
 class NewContactForm extends React.Component {
   state = {
@@ -26,7 +26,7 @@ class NewContactForm extends React.Component {
 
   createContact = e => {
     e.preventDefault();
-    axios.post(API_URL, this.state).then(() => {
+    axios.post(CONTACT_URL, this.state).then(() => {
       this.props.resetState();
       this.props.toggle();
     });
@@ -34,7 +34,7 @@ class NewContactForm extends React.Component {
 
   editContact = e => {
     e.preventDefault();
-    axios.put(API_URL + this.state.pk, this.state).then(() => {
+    axios.put(CONTACT_URL + this.state.pk, this.state).then(() => {
       this.props.resetState();
       this.props.toggle();
     });
@@ -74,7 +74,7 @@ class NewContactForm extends React.Component {
             value={this.defaultIfEmpty(this.state.phone)}
           />
         </FormGroup>
-        <Button>Send</Button>
+        <Button>Save</Button>
       </Form>
     );
   }

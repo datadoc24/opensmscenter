@@ -8,14 +8,15 @@ class ContactList extends Component {
   render() {
     const contacts = this.props.contacts;
     return (
-      <Table dark>
+      <Table striped bordered>
         <thead>
-          <tr>
+          <tr className="table-primary">
             <th>Name</th>
             <th>Email</th>
             <th>Phone</th>
             <th>Registration</th>
-            <th></th>
+            <th>Actions</th>
+            <th>Select</th>
           </tr>
         </thead>
         <tbody>
@@ -44,6 +45,11 @@ class ContactList extends Component {
                     resetState={this.props.resetState}
                   />
                 </td>
+                <td><label>
+        <input
+          type="checkbox"
+        />
+      </label></td>
               </tr>
             ))
           )}
